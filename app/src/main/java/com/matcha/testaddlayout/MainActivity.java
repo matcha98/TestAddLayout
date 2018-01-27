@@ -4,15 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-
 import com.matcha.testaddlayout.dao.Action;
 import com.matcha.testaddlayout.dao.ActionDAO;
 import com.matcha.testaddlayout.dao.Game;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,25 +21,25 @@ public class MainActivity extends AppCompatActivity {
     {
         String pid="1";
         ActionDAO dao=new ActionDAO(this);
-        ArrayList<Action> mylist=dao.getActions(pid);
+        ArrayList<Action> actions=dao.getActions(pid);
         Game total=new Game(pid,0,"");//總合
         ArrayList<Game> games=new ArrayList<>();
         //先指定第一筆資料
-        int section=mylist.get(0).getSection();
-        String number=mylist.get(0).getNumber();
+        int section=actions.get(0).getSection();
+        String number=actions.get(0).getNumber();
         int count=0;
         games.add(new Game(pid,section,number));
 
-        for(int i=0;i<mylist.size();i++)
+        for(int i=0;i<actions.size();i++)
         {
             //Log.d("action",mylist.get(i).toString());
-            if(section!=mylist.get(i).getSection() || !mylist.get(i).getNumber().equals(number) ){
-                section=mylist.get(i).getSection();
-                number=mylist.get(i).getNumber();
+            if(section!=actions.get(i).getSection() || !actions.get(i).getNumber().equals(number) ){
+                section=actions.get(i).getSection();
+                number=actions.get(i).getNumber();
                 games.add(new Game(pid,section,number));
                 count++;
             }
-            switch(mylist.get(i).getMove())
+            switch(actions.get(i).getMove())
             {
                 case RecordAction.Action_2point_in:
                     games.get(count).setPoint2in(games.get(count).getPoint2in()+1);
