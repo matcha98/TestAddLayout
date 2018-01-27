@@ -34,14 +34,7 @@ public class ActionDAO {
                 " section : "+action.getSection()+" number : "+action.getNumber()+
                 " move : "+action.getMove());
         database.close();
-        if(id>0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return id>0 ? true:false;
     }
 
     //取得全部動作

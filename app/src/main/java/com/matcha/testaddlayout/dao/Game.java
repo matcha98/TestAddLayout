@@ -224,8 +224,8 @@ public class Game {
 
     @Override
     public String toString() {
-        return "_id : "+ _id+" "+pid+" "+section+" "+number+" "+score+" "+
-       point2in+" "+point2out+" "+point3in+" "+point3out+" "+ftin+" "+ftout+" "+
+        return "_id : "+ _id+" "+pid+" "+section+" "+number+" s"+score+" a"+
+       point2in+" "+point2out+" b"+point3in+" "+point3out+" c"+ftin+" "+ftout+" "+
         or+" "+dr+" "+st+" "+as+" "+bs+" "+to+" "+foul;
     }
 }
